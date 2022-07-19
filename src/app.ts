@@ -1,3 +1,18 @@
-const app = 'Test App'
+class Department {
+  name: string;
 
-console.log('testing:', app)
+  constructor(n: string) {
+    this.name = n;
+  }
+
+  describe(this: Department) {
+    console.log("Department:", this.name);
+  }
+}
+
+const accounting = new Department("Accounting");
+
+accounting.describe();
+
+const accountingCopy = { name: 's', describe: accounting.describe };
+accountingCopy.describe();
