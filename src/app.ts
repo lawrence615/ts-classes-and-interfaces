@@ -1,5 +1,6 @@
 class Department {
   name: string;
+  private employees: string[] = [] // modifier makes the property to be accessed within the class only 
 
   constructor(n: string) {
     this.name = n;
@@ -8,11 +9,26 @@ class Department {
   describe(this: Department) {
     console.log("Department:", this.name);
   }
+
+  addEmployee(employee: string) {
+    this.employees.push(employee)
+  }
+
+  printEmployeeInformation() {
+    console.log(this.employees.length)
+    console.log(this.employees)
+  }
 }
 
 const accounting = new Department("Accounting");
 
-accounting.describe();
+accounting.addEmployee('John')
+accounting.addEmployee('Doe')
 
-const accountingCopy = { name: 's', describe: accounting.describe };
-accountingCopy.describe();
+// accounting.employees[2] = 'Mary'
+
+accounting.describe();
+accounting.printEmployeeInformation();
+
+// const accountingCopy = { name: 's', describe: accounting.describe };
+// accountingCopy.describe();
