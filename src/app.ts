@@ -1,9 +1,9 @@
 class Department {
-  name: string;
+//   private name: string;
   private employees: string[] = [] // modifier makes the property to be accessed within the class only 
 
-  constructor(n: string) {
-    this.name = n;
+  constructor(public name: string) {
+    // this.name = n;
   }
 
   describe(this: Department) {
